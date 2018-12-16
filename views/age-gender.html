@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Blog de Roberto Salazar</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet" />
+</head>
+
+<body>
+    <header class="header">
+        <h2>Estimación de edad y genero con redes neuronales convolucionales.</h2>
+    </header>
+    <div class="content">
+        <h3>Introducción</h3>
+        <p>
+            La estimación de edad y género es una taréa importante tanto para los humanos
+            como para la la vision por computadora. Este tipo de estimación tiene muchas aplicaiones,
+            principalmente para los forences y las redes sociales.
+        </p>
+        <p>
+            En esta entrada se muestran los resultados obtenidos para el problema de la estimación
+            de edad y género utilizando una red neuronal convolucional utilizando keras.
+        </p>
+        <img src="https://s3.amazonaws.com/keras.io/img/keras-logo-2018-large-1200.png" />
+        <h3>Dataset utilizado</h3>
+        <p>
+            El dataset utilizado se llama UTKFace, es un dataset que consiste de un poco más de 20,000
+            imágenes con etiquedas de edad de entre 0 y 116 años, género y etnia.
+        </p>
+        <img src="https://susanqq.github.io/UTKFace/icon/samples.png" />
+        <h3>Método utilizado</h3>
+        <p>
+            En la implementación se utiliza un método conocido como Deep EXpectation (DEX), en el
+            cual se utiliza un modelo pre entrenado VGG-16.
+        </p>
+        <p>
+            Para realizar la clasificación, primero se realiza una detección de cara con algún método
+            después se pasa por la red pre entrenada VGG-16 y por último este va a una softmax.
+        </p>
+        <img src="./architecture.png" />
+        <p>
+            Para el error se utiliza el Mean Absolute Error (MAE), todos los resultados presentados
+            son obtenidos utilizando este método. Este es un promedio del error absoluto entre la edad
+            que se predijo y la edad verdadera.
+        </p>
+        <h3>Resultados obtenidos</h3>
+        <p>
+            Se obtuvieron resultados bastante satisfactorios, a continuación se muestran imagenes de los resultados.
+        </p>
+        <div class="result-age-gender">
+            <img src="./result1.png" />
+            <i>Edad real: 23, Masculino</i>
+        </div>
+        <div class="result-age-gender">
+            <img src="./result2.png" />
+            <i>Edad real: 47, Masculino</i>
+        </div>
+        <div class="result-age-gender">
+            <img src="./result3.png" />
+            <i>Edad real: 22, Femenino</i>
+        </div>
+        <div class="result-age-gender">
+            <img src="./result4.png" />
+            <i>Edad real: 23, Femenino</i>
+        </div>
+        <h3>Conclusiones</h3>
+        <p>
+            Las redes neuronales convolucionales son una opción bastante buena al momento de resolver el
+            problema de clasificación de edad y género. Los resultados obtenidos en general fueron bastate
+            satisfactorios a mi parecer.
+        </p>
+        <p>
+            El único inconveniente es que al momento de hacer el entrenamiento de la red, tuve que utilizar
+            una base de datos mas pequeña de lo previsto, ya que el dataset original era el conocido como
+            IMDB-Wiki dataset, el cual cuenta con más de 500, 000 imágenes. El problema fue que cuando
+            intentaba pre procesar las imágenes se llenaba la ram de mi computadora y no podía pre procesarlas.
+            El siguiente paso a realizar para este trabajo sería utilizar un dataset mas grande para así obtener
+            aún mejores resultados, aunque los ya obtenidos a mi parecer no son malos para nada.
+        </p>
+        <h3>Referencias</h3>
+        <ul class="references">
+            <li>
+                <a href="https://susanqq.github.io/UTKFace/">Página de UTKFace</a>
+            </li>
+            <li>
+                <a href="https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/">Página de IMDB-Wiki</a>
+            </li>
+            <li>
+                <a href="https://github.com/robertosalazare/age-gender-estimation">Repositorio de la implementación de la red</a>
+            </li>
+            <li>
+                R. Rothe, R. Timofte, and L. V. Gool, "DEX: Deep EXpectation of apparent age from a single image," in Proc. of ICCV, 2015.
+            </li>
+            <li>
+                R. Rothe, R. Timofte, and L. V. Gool, "Deep expectation of real and apparent age from a single image without facial landmarks," in IJCV, 2016.
+            </li>
+        </ul>
+    </div>
+    <footer class="footer">
+        <span>José Roberto Salazar Espinoza - 2018</span>
+    </footer>
+</body>
+
+</html>

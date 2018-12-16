@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Blog de Roberto Salazar</title>
+    </head>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet" />
+    <body>
+        <header class="header">
+            <h2>Generación de cartas de Hearthstone con redes neuronales recurrentes.</h2>
+        </header>
+        <div class="content">
+            <img src="./leeroy.jpg" />
+            <h3>Introducción</h3>
+            <p>
+                En esta entrada del blog se presentan los resultados de entrenar una red LSTM
+                para la generación de texto aleatorio a nivel caracter con los textos de todas 
+                las cartas de Hearthstone existentes hasta el momento. Aquí no se presenta ningún 
+                detalle de implementación, para ver los detalles de implementación se puede acceder 
+                a <a target="_blank" href="https://github.com/robertosalazare/hearthstone-text-rnn">este repositorio de github</a>
+                el cual contiene un libreta de jupyter con el código.
+            </p>
+            <h3>¿Porqué Hearthstone?</h3>
+            <p>
+                Hearthstone es actualmente uno de los juegos mas populares, este cuenta con mas de
+                100 millones de usuarios actualmente y también es uno de mis juegos favoritos al cual
+                le he dedicado muchas horas de mi vida.
+            </p>
+            <p>
+                Buscando en github el otro día encontré que unas personas habían hecho un generador
+                de cartas de magic el cual puede ser encontrado <a target="_blank" href="https://github.com/billzorn/mtg-rnn">aquí</a>.
+                Entonces pensé que se podría hacer algo parecido con cartas de Hearthstone, estas al ser
+                más simples y con menos palabras en ellas pensé que se debería de obtener un mejor resultado
+                que con las cartas de magic, o al menos un resultado igual con un entrenamiento menor. Pero después
+                me di cuenta que hay mucho menos cartas de Hearthstone que de magic por lo cual el conjunto de entrenamiento
+                sería menor, por lo cual no necesariamente se obtendían mejores resultados. Aunque al final
+                los resultados fueron bastante satisfactorios a mi parecer.
+            </p>
+            <h3>Como fue entrenada la red</h3>
+            <p>
+                La red neuronal fue entrenada en una computadora con una tarjeta de video NVIDIA geforce 
+                GTX 960 con un procesador intel i5 6500. El entrenamiento tomó 150 largos epochs 
+                los cuales tomaron aproximadamente unas 12 horas de ejecución.
+            </p>
+            <h3>Resultados obtenidos</h3>
+            <p>
+                Ahora se van a mostrar algunas de las cartas generadas por el modelo, cabe destacar que las
+                estadisticas, el coste de maná y el nombre de la carta son hechas por mi a mano.
+            </p>
+            <div class="results-hs">
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/0a/05/aa/4f/0a05aa4f.png" />
+                    <span>Esta sería una carta bastante buena a mi parecer</span>
+                </div>
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/93/b8/a2/72/93b8a272.png" />
+                    <span>
+                        El modelo también pudo crear sinergia con otras cartas que ya existen!
+                    </span>
+                </div>
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/a3/a3/16/98/a3a31698.png" />
+                    <span>
+                        Esta carta me pareció bastante interesante, podría incluso ser viable.
+                    </span>
+                </div>
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/27/1d/03/bf/271d03bf.png" />
+                    <span>
+                        Muy buena carta, perfecta para priest.
+                    </span>
+                </div>
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/d2/1a/18/6e/d21a186e.png" />
+                    <span>
+                        Esta me pareció bastante graciosa.
+                    </span>
+                </div>
+                <div class="result-hs">
+                    <img src="https://hearthcards.ams3.digitaloceanspaces.com/d8/d5/b9/27/d8d5b927.png" />
+                    <span>
+                        Esta carta sería extremadamente poderosa la verdad.
+                    </span>
+                </div>
+            </div>
+            <h3>Conclusiones</h3>
+            <p>
+                En el caso de la generación de texto para cartas de texto, se puede obervar que
+                las redes neuronales recurrentes son una excelente opción, ya que como pudimos
+                observar los resultados fueron excelentes, pero las cartas de hearthstone tienen
+                textos relativamente sencillos. Faltaría entrenar la red con textos que tengan un
+                vocabulario mas complejo para ver si sirven con problemas mas grandes.
+            </p>
+            <h3>Referencias</h3>
+            <p>
+                <ul class="references">
+                    <li>
+                        <a href="http://karpathy.github.io/2015/05/21/rnn-effectiveness/">http://karpathy.github.io/2015/05/21/rnn-effectiveness/</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/billzorn/mtg-rnn">https://github.com/billzorn/mtg-rnn</a> (Repositorio de la red que genera cartas de magic)
+                    </li>
+                    <li>
+                        <a href="https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/">https://machinelearningmastery.com/text-generation-lstm-recurrent-neural-networks-python-keras/</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/robertosalazare/hearthstone-text-rnn">https://github.com/robertosalazare/hearthstone-text-rnn</a> (Repositorio con la implementación utilizada)
+                    </li>
+                </ul>
+            </p>
+        </div>
+        <footer class="footer">
+            <span>José Roberto Salazar Espinoza - 2018</span>
+        </footer>
+    </body>
+</html>
