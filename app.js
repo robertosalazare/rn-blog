@@ -21,6 +21,6 @@ app.get("/cards-generation",(req,res) => {
   res.sendFile(path + "/cards-generation.html");
 });
 
-app.listen(3000, () => {
-  console.log("Live at Port 3000");
+app.listen(process.env.PORT || 3000, () => {
+  console.log("Live at Port " + (process.env.PORT ? process.env.PORT : 3000));
 });
